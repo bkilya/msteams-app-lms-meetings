@@ -55,6 +55,8 @@
   "_copyMeetingPage.copy.comment": "VERB - button text that tells user they can copy the meeting link",
   "copyMeetingPage.copy.ariaLabel": "Copy the meeting link",
   "_copyMeetingPage.copy.ariaLabel.comment": "Accessibility label for copy button",
+  "copyMeetingPage.copy.invite": "Copy invite",
+  "copyMeetingPage.copy.invite.ariaLabel": "Copy invite to the meeting",
   "header.signout.title": "Sign out",
   "_header.signout.title.comment": "VERB - Title for sign out icon",
   "header.signout.ariaLabel": "Sign out",

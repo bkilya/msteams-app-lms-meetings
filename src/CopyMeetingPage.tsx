@@ -10,7 +10,7 @@ import { translate } from './localization/translate';
 
 interface CopyMeetingPageProps {
   meeting?: OnlineMeeting;
-  onCopyToClipboard: (meeting?: OnlineMeeting) => void;
+  onCopyToClipboard: (meeting?: OnlineMeeting, copyType?: string) => void;
 }
 
 const mapStateToProps = (state: AppState) => ({
@@ -18,7 +18,7 @@ const mapStateToProps = (state: AppState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  onCopyToClipboard: (meeting?: OnlineMeeting) => {
+  onCopyToClipboard: (meeting?: OnlineMeeting, copyType?: string) => {
     const str =
       document.getElementById('copy')?.innerHTML ||
       translate('copyMeetingPage.failed.copy');
@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
       e.clipboardData.setData('text/html', str);
       e.clipboardData.setData(
         'text/plain',
-        meeting?.joinWebUrl ?? translate('copyMeetingPage.failed.copy')
+        copyType == 'invite' ? (meeting?.preview ?? translate('copyMeetingPage.failed.copy')) : (meeting?.joinWebUrl ?? translate('copyMeetingPage.failed.copy'))
       );
       e.preventDefault();
     }
@@ -72,6 +72,13 @@ function CopyMeetingPageComponent(props: CopyMeetingPageProps) {
             id="copy"
             dangerouslySetInnerHTML={{ __html: props.meeting?.preview ?? '' }}
           />
+          <PrimaryButton
+            className="teamsButton copyButton"
+            onClick={() => props.onCopyToClipboard(props.meeting, 'invite')}
+            ariaLabel={translate('copyMeetingPage.copy.invite.ariaLabel')}
+          >
+            <FormattedMessage id="copyMeetingPage.copy.invite" />
+          </PrimaryButton>
           <PrimaryButton
             className="teamsButton copyButton"
             onClick={() => props.onCopyToClipboard(props.meeting)}
