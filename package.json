@@ -24,8 +24,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:general": "(set REACT_APP_SKU=general) & npm start",
     "build": "react-scripts build",
     "build:health": "env REACT_APP_SKU=health react-scripts build",
+    "build:general": "(set REACT_APP_SKU=general) & react-scripts build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
