@@ -80,6 +80,9 @@ You'll need to register an app through the following process:
 Change the following values in the `msalApp.ts` file:
 * **clientId** - Set this to the Application (client) ID of the AAD application that you registered
 
+Change the following values in the at `package.json` general
+* ***REACT_APP_SKU** - Configure start and build profiles in script section by setting variable, it affects which localization set is used edu(default)/health/edu.
+
 ## Available Scripts
 
 In the project directory, you can run:
