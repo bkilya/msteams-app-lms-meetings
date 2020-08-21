@@ -1,0 +1,55 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.7/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.7",
+    "version": "1.0.0",
+    "isFullScreen": true,
+    "id": "GUID",
+    "packageName": "createmeeting.yourdomain",
+    "developer": {
+        "name": "Performance Teams LLC",
+        "websiteUrl": "https://yourdomain",
+        "privacyUrl": "https://yourdomain/privacy",
+        "termsOfUseUrl": "https://yourdomain/terms"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "Meeting",
+        "full": "Meeting"
+    },
+    "description": {
+        "short": "Appp for meeting creation",
+        "full": "Appp for meeting creation for org"
+    },
+    "accentColor": "#8B8B8B",
+    "configurableTabs": [
+        {
+            "configurationUrl": "https://appurl",
+            "canUpdateConfiguration": false,
+            "scopes": [
+                "team",
+                "groupchat"
+            ]
+        }
+    ],
+    "staticTabs": [
+        {
+            "entityId": "TeamsCreateMeeting",
+            "name": "Create Meeting",
+            "contentUrl": "https://appurl",
+            "websiteUrl": "https://appurl",
+            "scopes": [
+                "personal"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "appdomain"
+    ]
+}
