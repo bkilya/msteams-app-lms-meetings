@@ -7,7 +7,7 @@ import {
 } from 'office-ui-fabric-react';
 import { AppState } from './RootReducer';
 import { Dispatch } from 'redux';
-import { OPEN_SIGNIN_DIALOG_COMMAND } from './auth/actions';
+import { OPEN_SIGNIN_DIALOG_COMMAND, OPEN_TEAMS_SIGNIN_DIALOG_COMMAND } from './auth/actions';
 import { connect } from 'react-redux';
 import signInImage from './images/signin.svg';
 import { FormattedMessage } from 'react-intl';
@@ -15,24 +15,32 @@ import { translate } from './localization/translate';
 
 import './index.css';
 
+const REACT_APP_MODE = process?.env?.REACT_APP_MODE ?? 'page';
+
 const boldStyle = { root: { fontWeight: FontWeights.semibold } };
 
 interface SigninPageProps {
   onSignIn: () => void;
+  onSignInTeams: () => void;
 }
 
 const mapStateToProps = (state: AppState) => ({} as Partial<SigninPageProps>);
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   ({
-    onSignIn: () =>
+    onSignIn: () => 
       dispatch({
         type: OPEN_SIGNIN_DIALOG_COMMAND
+      }),
+    onSignInTeams: () => 
+      dispatch({
+        type: OPEN_TEAMS_SIGNIN_DIALOG_COMMAND
       })
   } as Partial<SigninPageProps>);
 
 function SigninPageComponent(props: Partial<SigninPageProps>) {
   const onSignIn = props.onSignIn ?? (() => {});
+  const onSignInTeams = props.onSignInTeams ?? (() => {});
 
   return (
     <>
@@ -76,7 +84,7 @@ function SigninPageComponent(props: Partial<SigninPageProps>) {
 
         <PrimaryButton
           className="teamsButton"
-          onClick={() => onSignIn()}
+          onClick={() => REACT_APP_MODE === 'teams' ? onSignInTeams() : onSignIn()}
           ariaLabel={translate('signin.button.ariaLabel')}
         >
           <FormattedMessage id="signin.button" />

@@ -83,6 +83,9 @@ Change the following values in the `msalApp.ts` file:
 Change the following values in the at `package.json` general
 * ***REACT_APP_SKU** - Configure start and build profiles in script section by setting variable, it affects which localization set is used edu(default)/health/edu.
 
+Change the following values in the at `package.json` general
+* ***REACT_APP_MODE** - Configure start and build profiles in script section by setting variable, it affects auth flow, with 'page' value - it works like standard web page, with 'teams' value - auth flow changing to Teams Tab and starts using @microsoft/teams-js.
+
 ## Available Scripts
 
 In the project directory, you can run:

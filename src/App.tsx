@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
 import SigninPage from './SigninPage';
+import SigninTeamsPage from './SigninTeamsPage';
 import { createAuthMiddleware } from './auth/middleware';
 import MeetingPage from './MeetingPage';
 import { createRootReducer } from './RootReducer';
@@ -40,6 +41,7 @@ function App() {
       <ConnectedRouter history={hist}>
         <Switch>
           <Route exact path="/signin" component={SigninPage} />
+          <Route exact path="/signinteams" component={SigninTeamsPage} />
           <Route exact path="/createMeeting" component={MeetingPage} />
           <Route exact path="/copyMeeting" component={CopyMeetingPage} />
           <Route exact path="/error" component={ErrorPage} />
