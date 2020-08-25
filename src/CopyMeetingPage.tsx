@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
       e.clipboardData.setData('text/html', str);
       e.clipboardData.setData(
         'text/plain',
-        copyType == 'invite' ? (meeting?.preview ?? translate('copyMeetingPage.failed.copy')) : (meeting?.joinWebUrl ?? translate('copyMeetingPage.failed.copy'))
+        copyType === 'invite' ? (meeting?.preview ?? translate('copyMeetingPage.failed.copy')) : (meeting?.joinWebUrl ?? translate('copyMeetingPage.failed.copy'))
       );
       e.preventDefault();
     }
